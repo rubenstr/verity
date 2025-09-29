@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-header [title]="name"></app-header>
 <div class="card">
     <div class="card-body">
 
@@ -24,7 +24,7 @@
                 </select>
                 <div class="invalid-feedback">Por favor preencher o campo obrigatório.</div>
             </div>
-            <button type="submit" class="btn btn-primary button-enviar">Enviar</button>
+            <button type="submit" class="btn btn-primary button-enviar" routerLink="/resume">Enviar</button>
         </form>
 
     </div>

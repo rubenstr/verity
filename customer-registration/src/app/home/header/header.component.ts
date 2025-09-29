@@ -10,5 +10,5 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-appTitle = Input();
+ @Input() title!: string;
 }
