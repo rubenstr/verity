@@ -13,17 +13,17 @@ export const routes: Routes = [
     title: 'Registro Pessoal',
   },
   {
-    path: '/residencial',
+    path: 'residencial',
     loadComponent: () => import('./forms/residential-registration/residential-registration.component').then(m => m.ResidentialRegistrationComponent),
     title: 'Registro Residencial',
   },
   {
-    path: '/profissional',
+    path: 'profissional',
     loadComponent: () => import('./forms/professional-registration/professional-registration.component').then(m => m.ProfessionalRegistrationComponent),
     title: 'Registro Profissional',
   },
     {
-    path: '/resume',
+    path: 'resume',
     title: 'Resume page',
      loadComponent: () => import('./forms/resume-registration/resume-registration.component').then(m => m.ResumeRegistrationComponent),
   },
