@@ -4,10 +4,11 @@ import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
 import { HeaderComponent } from 'src/app/home/header/header.component';
 import { RouterLink } from "@angular/router";
 import { StateServiceService } from 'src/app/store/state.service.service';
-import { form } from '@angular/forms/signals';
+import { ReactiveFormsModule} from '@angular/forms';
+import { SharedFormService } from 'src/app/services/shared-form.service';
 
 interface User {
-  name: string;
+  nome: string;
   dataNascimento: string;
   cpf: string;
   telefone:string;
@@ -16,21 +17,26 @@ interface User {
 @Component({
   selector: 'app-person-registration',
   standalone: true,
-  imports: [CommonModule, NgxMaskDirective, NgxMaskPipe, HeaderComponent, RouterLink],
+  imports: [CommonModule, NgxMaskDirective, NgxMaskPipe, HeaderComponent, RouterLink, ReactiveFormsModule],
   templateUrl: './person-registration.component.html',
   styleUrls: ['./person-registration.component.scss']
 })
 export class PersonRegistrationComponent {
-  userModel = signal<User>({ name: '', dataNascimento: '', cpf:'', telefone:''  });
-  userForm = form(this.userModel);
+
+  constructor(public userForm: SharedFormService) {}
+
+  userModel = signal<User>({ nome: '', dataNascimento: '', cpf:'', telefone:''  });
   storeService = inject(StateServiceService);
   name!: any;
   state = this.storeService.getState();
  
  @Input() titlename!: string;
 
- saveDataForm(event: Event): void {
-  console.log(event)
-    this.storeService.setState((event.target as HTMLInputElement).value);
-  }
+ saveDataForm(): void {
+  if (this.userForm.form.valid) {
+      const user = this.userForm.form.getRawValue();
+      this.storeService.setState(user);
+  } 
+}
+
 }

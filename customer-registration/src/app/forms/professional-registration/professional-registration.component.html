@@ -2,29 +2,31 @@
 <div class="card">
     <div class="card-body">
 
-        <form class="row g-3">
+        <form  [formGroup]="userForm.form" class="row g-3">
 
             <div class="col-md-4">
                 <label for="empresa" class="form-label">Empresa Atual:</label>
-                <input type="text" class="form-control" id="empresa" placeholder="Empresa" required>
+                <input type="text" class="form-control" id="empresa" placeholder="Empresa" [value]="state()"  formControlName="empresa" required>
                 <div class="invalid-feedback">Por favor preencher o campo obrigatório.</div>
             </div>
             <div class="col-md-4">
                 <label for="salario" class="form-label">Salário:</label>
-                <input class="form-control" type="text" id="salário"  prefix="R$ "  suffix=",00" mask="000.000.000.000" placeholder="Salário" required>
+                <input class="form-control" type="text" id="salario"  prefix="R$ "  suffix=",00" placeholder="Salário"  [value]="state()"  formControlName="salario" required>
                 <div class="invalid-feedback">Por favor preencher o campo obrigatório.</div>
             </div>
             <div class="col-md-4">
-                <label for="cep" class="form-label">Profissão:</label>
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Selecione um item do menu:</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                <label for="profissao" class="form-label">Profissão:</label>
+                <select class="form-select" aria-label="Default select example"  id="profissao" [value]="state()"  formControlName="profissao">
+                    <option selected>Selecione uma profissão:</option>
+                    <option value="1">Analista</option>
+                    <option value="2">Médico</option>
+                    <option value="3">Advogado</option>
+                    <option value="2">Polícia</option>
+                    <option value="3">Desempregado</option>
                 </select>
                 <div class="invalid-feedback">Por favor preencher o campo obrigatório.</div>
             </div>
-            <button type="submit" class="btn btn-primary button-enviar" routerLink="/resume">Enviar</button>
+            <button type="submit" class="btn btn-primary button-enviar" routerLink="/resume" (click)="saveDataForm()" [disabled]="!userForm.form.valid">Enviar</button>
         </form>
 
     </div>

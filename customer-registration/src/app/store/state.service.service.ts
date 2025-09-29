@@ -1,18 +1,24 @@
 import { Injectable, Signal, signal } from "@angular/core";
 
-type StateValue = string | null;
+type StateValue = {
+  nome: string;
+  dataNascimento: string;
+  cpf: string;
+  telefone:string;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class StateServiceService {
-  #state = signal<StateValue>(null);
+  #state = signal<StateValue>({nome: '', dataNascimento: '',  cpf: '',  telefone:''});
 
-  setState(v: StateValue){
-    console.log('Valor service:', JSON.stringify(v))
-    if(!v){ v= null}
-    this.#state.set(v);
-  }
+setState(v: Partial<StateValue>) {
+  this.#state.set({
+    ...this.#state(),
+    ...v
+  });
+}
 
   getState(): Signal<StateValue>{
     return this.#state.asReadonly();
