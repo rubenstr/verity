@@ -1,1 +1,36 @@
-<p>residential-registration works!</p>
+<app-header></app-header>
+<div class="card">
+    <div class="card-body">
+
+        <form class="row g-3">
+            <div class="col-md-12">
+                <label for="endereco" class="form-label">Endereco Completo:</label>
+                <input type="text" class="form-control" id="endereco" aria-describedby="enderecoHelp"
+                    placeholder="Endereço" required>
+                <div class="invalid-feedback">Por favor preencher o campo obrigatório.</div>
+            </div>
+            <div class="col-md-6">
+                <label for="bairro" class="form-label">Bairro:</label>
+                <input type="text" class="form-control" id="bairro" placeholder="Bairro" required>
+                <div class="invalid-feedback">Por favor preencher o campo obrigatório.</div>
+            </div>
+            <div class="col-md-6">
+                <label for="cep" class="form-label">CEP:</label>
+                <input class="form-control" type="text" id="cep" mask="00000-000" placeholder="CEP" required>
+                <div class="invalid-feedback">Por favor preencher o campo obrigatório.</div>
+            </div>
+            <div class="col-md-6">
+                <label for="cidade" class="form-label">Cidade:</label>
+                <input type="text" class="form-control" id="cidade" placeholder="Cidade" required>
+                <div class="invalid-feedback">Por favor preencher o campo obrigatório.</div>
+            </div>
+            <div class="col-md-6">
+                <label for="estado" class="form-label">Estado:</label>
+                <input type="text" class="form-control" id="estado" placeholder="Estado" required>
+                <div class="invalid-feedback">Por favor preencher o campo obrigatório.</div>
+            </div>
+            <button type="submit" class="btn btn-primary button-enviar">Avançar</button>
+        </form>
+
+    </div>
+</div>

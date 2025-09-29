@@ -1,1 +1,31 @@
-<p>professional-registration works!</p>
+<app-header></app-header>
+<div class="card">
+    <div class="card-body">
+
+        <form class="row g-3">
+
+            <div class="col-md-4">
+                <label for="empresa" class="form-label">Empresa Atual:</label>
+                <input type="text" class="form-control" id="empresa" placeholder="Empresa" required>
+                <div class="invalid-feedback">Por favor preencher o campo obrigatório.</div>
+            </div>
+            <div class="col-md-4">
+                <label for="salario" class="form-label">Salário:</label>
+                <input class="form-control" type="text" id="salário"  prefix="R$ "  suffix=",00" mask="000.000.000.000" placeholder="Salário" required>
+                <div class="invalid-feedback">Por favor preencher o campo obrigatório.</div>
+            </div>
+            <div class="col-md-4">
+                <label for="cep" class="form-label">Profissão:</label>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Selecione um item do menu:</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+                <div class="invalid-feedback">Por favor preencher o campo obrigatório.</div>
+            </div>
+            <button type="submit" class="btn btn-primary button-enviar">Enviar</button>
+        </form>
+
+    </div>
+</div>
