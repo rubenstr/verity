@@ -4,6 +4,7 @@ import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
 import { HeaderComponent } from 'src/app/home/header/header.component';
 import { RouterLink } from "@angular/router";
 import { StateServiceService } from 'src/app/store/state.service.service';
+import { form } from '@angular/forms/signals';
 
 interface User {
   name: string;
@@ -21,7 +22,7 @@ interface User {
 })
 export class PersonRegistrationComponent {
   userModel = signal<User>({ name: '', dataNascimento: '', cpf:'', telefone:''  });
-  //userForm = form(this.userModel);
+  userForm = form(this.userModel);
   storeService = inject(StateServiceService);
   name!: any;
   state = this.storeService.getState();
